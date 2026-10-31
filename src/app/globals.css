@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-accent: #C5A880;
+  --theme-accent-glow: rgba(197, 168, 128, 0.35);
+  --theme-bg-primary: #070b09;
+  --theme-bg-secondary: #0f1712;
+  --theme-hairline: rgba(197, 168, 128, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #070b09;
+}
+
+body {
+  background-color: var(--theme-bg-primary);
+  color: #e6e4df;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.8s ease, color 0.5s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080c09;
+}
+::-webkit-scrollbar-thumb {
+  background: #194a33;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
