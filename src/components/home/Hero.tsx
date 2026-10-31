@@ -92,17 +92,18 @@ export default function Hero() {
     setProgress(0);
   };
 
-  const tiltX = reducedMotion ? 0 : mousePos.y * -12;
-  const tiltY = reducedMotion ? 0 : mousePos.x * 16;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const tiltX = reducedMotion || isMobile ? 0 : mousePos.y * -12;
+  const tiltY = reducedMotion || isMobile ? 0 : mousePos.x * 16;
 
   return (
     <section
-      className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#040c07] text-white pt-20 pb-20 select-none"
+      className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#040c07] text-white pt-16 sm:pt-20 pb-16 sm:pb-20 select-none max-w-full"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* 1. Natural Green Estate Photographic Backdrop */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Image
           src="/images/hero-2.webp"
           alt="Lush green tea estate canopy"
@@ -117,10 +118,10 @@ export default function Hero() {
 
       {/* 2. Dynamic Ambient Product World Glows */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] rounded-full blur-[140px] pointer-events-none transition-all duration-1000"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[750px] h-[300px] sm:h-[550px] rounded-full blur-[90px] sm:blur-[140px] pointer-events-none transition-all duration-1000 overflow-hidden"
         style={{ backgroundColor: activeProduct.themeGlow }}
       />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[300px] rounded-full bg-emerald-600/15 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[70vw] max-w-[400px] h-[200px] sm:h-[300px] rounded-full bg-emerald-600/15 blur-[80px] sm:blur-[120px] pointer-events-none overflow-hidden" />
 
       {/* 3. Floating Natural Green Tea Leaves Animation */}
       <FloatingTeaLeaves />
@@ -129,26 +130,26 @@ export default function Hero() {
       <WebGLSteamCanvas color={activeProduct.themeAccent} opacity={0.45} />
 
       {/* 5. Main Hero Container */}
-      <div className="container mx-auto px-6 lg:px-12 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center max-w-full overflow-hidden">
         {/* Left Column: Bold Editorial & Highly Attractive "SINGLE ORIGIN TEA" Promotion */}
-        <div className="lg:col-span-7 space-y-6 text-left">
+        <div className="lg:col-span-7 space-y-6 text-left max-w-full">
           {/* Prominent Golden-Emerald Single Origin Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-400/40 bg-gradient-to-r from-emerald-950/80 via-[#0a2316]/90 to-emerald-950/80 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.25em] font-extrabold bg-gradient-to-r from-emerald-300 via-amber-200 to-emerald-300 bg-clip-text text-transparent">
+          <div className="inline-flex max-w-full items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-emerald-400/40 bg-gradient-to-r from-emerald-950/80 via-[#0a2316]/90 to-emerald-950/80 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.25em] font-extrabold bg-gradient-to-r from-emerald-300 via-amber-200 to-emerald-300 bg-clip-text text-transparent truncate">
               100% UNBLENDED • SOUTH INDIAN HERITAGE
             </span>
           </div>
 
           {/* Core Eye-Catching Promotional Typography */}
-          <div className="space-y-2">
-            <h2 className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-briar-gold animate-spin-slow" />
+          <div className="space-y-2 max-w-full">
+            <h2 className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-400 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-briar-gold animate-spin-slow shrink-0" />
               <span>Direct From High-Altitude Gardens</span>
             </h2>
 
             {/* Glowing, Highly Attractive "SINGLE ORIGIN TEA" Keyword */}
-            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.1] break-words">
               The Purity of{' '}
               <span className="block mt-1 bg-gradient-to-r from-amber-300 via-emerald-400 to-yellow-200 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(16,185,129,0.7)] underline decoration-briar-gold/50 decoration-wavy decoration-1 underline-offset-8">
                 SINGLE ORIGIN TEA
@@ -163,7 +164,7 @@ export default function Hero() {
           </p>
 
           {/* Key Trust Checkmarks */}
-          <div className="grid grid-cols-2 gap-3 max-w-lg text-xs text-stone-300 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-lg text-xs text-stone-300 pt-1">
             <div className="flex items-center gap-2 bg-emerald-950/40 border border-emerald-800/40 px-3.5 py-2 rounded-xl backdrop-blur-sm">
               <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>100% Own Estate Harvest</span>
@@ -175,21 +176,21 @@ export default function Hero() {
           </div>
 
           {/* Interactive CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3 w-full sm:w-auto">
             <button
               onClick={() => addToCart(activeProduct, 1)}
-              className="group px-8 py-4 rounded-full bg-gradient-to-r from-briar-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-600 text-stone-950 font-extrabold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_45px_rgba(245,158,11,0.7)] hover:scale-105 active:scale-95 flex items-center gap-2"
+              className="group px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-briar-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-600 text-stone-950 font-extrabold text-xs uppercase tracking-wider sm:tracking-widest transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_45px_rgba(245,158,11,0.7)] hover:scale-105 active:scale-95 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-4 h-4 shrink-0" />
               <span>Order {activeProduct.name.split(' ')[0]} • ₹{activeProduct.price}</span>
             </button>
 
             <Link
               href={`/product/${activeProduct.slug}`}
-              className="px-7 py-4 rounded-full border border-emerald-500/50 hover:border-briar-gold bg-emerald-950/50 hover:bg-emerald-900/60 backdrop-blur-md text-stone-100 text-xs uppercase tracking-widest font-semibold transition-all duration-200 hover:scale-105 flex items-center gap-1.5"
+              className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-emerald-500/50 hover:border-briar-gold bg-emerald-950/50 hover:bg-emerald-900/60 backdrop-blur-md text-stone-100 text-xs uppercase tracking-wider sm:tracking-widest font-semibold transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1.5 w-full sm:w-auto"
             >
               <span>Explore Terroir</span>
-              <ArrowRight className="w-4 h-4 text-emerald-400" />
+              <ArrowRight className="w-4 h-4 text-emerald-400 shrink-0" />
             </Link>
           </div>
         </div>
@@ -235,7 +236,7 @@ export default function Hero() {
 
           {/* 3D Glassmorphic Pedestal Card */}
           <div
-            className="relative w-full max-w-sm bg-gradient-to-b from-[#0e1a12]/90 via-[#0a140e]/95 to-[#060c08] rounded-3xl p-6 border shadow-2xl backdrop-blur-xl transition-all duration-300 ease-out"
+            className="relative w-full max-w-[320px] sm:max-w-sm bg-gradient-to-b from-[#0e1a12]/90 via-[#0a140e]/95 to-[#060c08] rounded-3xl p-4 sm:p-6 border shadow-2xl backdrop-blur-xl transition-all duration-300 ease-out"
             style={{
               borderColor: activeProduct.themeAccent,
               boxShadow: `0 20px 50px rgba(0,0,0,0.9), 0 0 35px ${activeProduct.themeGlow}`,

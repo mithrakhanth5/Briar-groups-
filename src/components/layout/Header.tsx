@@ -105,19 +105,19 @@ export default function Header() {
             : 'bg-[#070b09]/60 backdrop-blur-md border-b border-white/5 py-4'
         }`}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <div className="container mx-auto px-3 sm:px-6 flex items-center justify-between max-w-full">
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-stone-300 hover:text-briar-gold transition-colors focus:outline-none"
+            className="lg:hidden p-1.5 text-stone-300 hover:text-briar-gold transition-colors focus:outline-none shrink-0"
             aria-label="Open navigation menu"
           >
             <Menu className="w-6 h-6" />
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-11 w-44 transition-transform group-hover:scale-105">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="relative h-8 w-28 sm:h-11 sm:w-44 transition-transform group-hover:scale-105">
               <Image
                 src="/images/logo.png"
                 alt="Briar Tea - 100% Single Origin Heritage"
@@ -282,23 +282,23 @@ export default function Header() {
           </nav>
 
           {/* Action Icons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Search */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-stone-300 hover:text-briar-gold rounded-full hover:bg-stone-800/60 transition-colors"
+              className="p-1.5 sm:p-2 text-stone-300 hover:text-briar-gold rounded-full hover:bg-stone-800/60 transition-colors"
               aria-label="Search teas"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Wishlist */}
             <Link
               href="/wishlist"
-              className="relative p-2 text-stone-300 hover:text-rose-400 rounded-full hover:bg-stone-800/60 transition-colors"
+              className="relative p-1.5 sm:p-2 text-stone-300 hover:text-rose-400 rounded-full hover:bg-stone-800/60 transition-colors"
               aria-label="Wishlist"
             >
-              <Heart className="w-5 h-5" />
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlist.length > 0 && (
                 <span className="absolute top-0 right-0 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">
                   {wishlist.length}
@@ -323,7 +323,7 @@ export default function Header() {
             {/* Cart Trigger */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2.5 bg-gradient-to-r from-emerald-950 to-stone-900 border border-emerald-800/60 hover:border-briar-gold/80 px-4 py-2 rounded-full transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:scale-105 active:scale-95"
+              className="flex items-center gap-1.5 sm:gap-2.5 bg-gradient-to-r from-emerald-950 to-stone-900 border border-emerald-800/60 hover:border-briar-gold/80 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:scale-105 active:scale-95 shrink-0"
               aria-label="Open basket"
             >
               <div className="relative">
@@ -334,7 +334,7 @@ export default function Header() {
                   </span>
                 )}
               </div>
-              <span className="text-xs font-mono font-semibold text-stone-200">
+              <span className="text-xs font-mono font-semibold text-stone-200 hidden sm:inline-block">
                 ₹{subtotal.toFixed(2)}
               </span>
             </button>

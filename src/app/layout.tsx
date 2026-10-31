@@ -94,7 +94,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden w-full max-w-full">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -107,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#070b09] text-stone-200 selection:bg-briar-gold selection:text-stone-950 font-sans antialiased overflow-x-hidden">
+      <body className="min-h-screen bg-[#070b09] text-stone-200 selection:bg-briar-gold selection:text-stone-950 font-sans antialiased overflow-x-hidden w-full max-w-full">
         <ThemeProvider>
           <CartProvider>
             <SmoothScroll>

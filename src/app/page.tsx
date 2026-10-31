@@ -10,7 +10,7 @@ import FaqSection from '@/components/home/FaqSection';
 
 export default function HomePage() {
   return (
-    <div className="bg-[#070b09] text-stone-200">
+    <div className="bg-[#070b09] text-stone-200 overflow-x-hidden max-w-full w-full">
       {/* Stage A: Futuristic Immersive Hero with WebGL steam & 3D tilt */}
       <Hero />
 
