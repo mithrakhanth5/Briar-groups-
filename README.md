@@ -1,64 +1,62 @@
-# BRIAR TEA - Heritage Single Origin Website Recreation
+# BRIAR TEA - Futuristic Single Origin Motion Experience
 
-A pixel-faithful, production-quality recreation of the luxury tea brand website **[briartea.com](https://briartea.com/)**, engineered with Next.js 14, React 18, TypeScript, Tailwind CSS, Lucide icons, and full eCommerce interactions.
+A luxury, motion-driven, immersive web experience recreating **[BRIAR Tea](https://briartea.com/)** (est. 1928, South India). Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **Three.js WebGL**, **GSAP**, **Lenis Inertial Scroll**, and **Framer Motion**.
 
----
-
-## 🍵 Project Highlights & Terroir
-
-- **Brand:** Briar Tea (Established 1928, 23,000+ acres across South Indian high ranges)
-- **Primary Color:** `#194a33` (Deep forest green) with gold `#C5A880` and leaf `#5ba238` accents
-- **Typography:** Luxury editorial serif headings paired with clean sans-serif UI typography
-- **Storage Strategy:** Built with **D: Drive storage redirection** (`D:\Briear`) preserving C: drive capacity while keeping full project source accessibility.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmithrakhanth5%2FBriar-groups-)
 
 ---
 
-## 🚀 Pages & Features Inventory
+## 🌟 Key Features
 
-| Route | Page | Implemented Features |
-| :--- | :--- | :--- |
-| `/` | **Home** | Top announcement bar, luxury sticky header, 5-slide animated hero carousel (`hero-1.webp` to `hero-5.webp`), Trust Badges, "Must-have Teas" category filter slider, "Single Origin Saga" story with stats (1928, 23,000 acres, 8,800 artisans, 15.5M kg), "Choose Your Tea Types" (Black vs Specialty), Interactive Estate Terroir Explorer (Anaimalai, Munnar, Meghamalai, Nilgiris), Customer reviews carousel, collapsible single-origin FAQ, and multi-column luxury footer. |
-| `/product-category` | **Shop / Catalog** | Complete collection grid with category pills, multi-criteria sorting (Price, Rating, Name, Featured), real-time search, Free Shipping tags, Quick View modals, and instant Cart triggers. |
-| `/product/[slug]` | **Product Details** | High-res gallery preview, elevation and estate tags, pack size selectors (250g, 500g), quantity counters, Add to Cart & 1-Click Buy Now, tabbed tasting notes, connoisseur brewing guide (temperature, steeping time, leaf ratio), and related teas. |
-| `/about` | **About Us** | 90+ years heritage narrative, the 4 quality pillars (Handpicked, Climate Neutral, Packed at Source, Shipped Direct), Mission & Vision, and estate statistics. |
-| `/infrastructure` | **Infrastructure & Plantations** | The 4 Plantation Districts, 7 modern Tea Factories (Sussex, Talliar, Injipara, etc.), R&D sensory cupping laboratory, and international certifications (ISO 22000, HACCP, Rainforest Alliance). |
-| `/contact` | **Contact Us** | Corporate & Sales channels, estate phone lines, regional headquarters details, and interactive inquiry form with validation and instant feedback. |
-| `/cart` | **Shopping Cart** | Item list with quantity adjustments, free shipping progress bar (Free above ₹325), coupon code engine (`BRIAR10`, `FIRSTHARVEST`), and summary calculation. |
-| `/checkout` | **Checkout** | Full shipping address collection, payment method selector (UPI, Credit/Debit Card, Net Banking, COD), order review, and instant confirmation receipt with generated Order ID. |
-| `/wishlist` | **Wishlist** | Saved tea favorites with persistent local storage. |
-| `/my-account` | **Customer Portal** | Order history, member profile status, and saved address management. |
-| Policies | **Legal & Policy** | Dedicated `/shipping-policy`, `/refund-policy`, and `/terms-conditions`. |
-
----
-
-## 🛠️ Technology Stack
-
-- **Framework:** Next.js 14.2 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS with custom Briar palette
-- **Icons:** Lucide React
-- **State Management:** React Context + LocalStorage (Cart, Wishlist, Search, Auth modals)
+- **10-Second Auto-Cycling Hero:** Cycles automatically through all 6 authentic single-origin teas with a smooth SVG countdown ring and 3D mouse parallax depth.
+- **WebGL Atmospheric Steam:** Interactive Three.js particle canvas simulating rising tea steam, optimized with mobile particle caps and offscreen pauses.
+- **Green Terroir Floating Leaves:** Organic drifting tea leaf particles celebrating the lush South Indian estate canopy.
+- **High-Visibility Single Origin Typography:** Prominently highlights the 100% single origin, unblended tea craft.
+- **Dynamic 6-World Theme Engine:** Smooth transitions between authentic estate palettes:
+  - *Malanad Black* (Anamalai–Valparai Rainforest Canopy)
+  - *Megamalai Black* (High-altitude Cloud Mist & Golden Ridge)
+  - *Rockwood Black* (Nilgiri–Wayanad Lavender Mist)
+  - *Talayar Black* (Munnar Sunrise Terraces & Copper Liquor)
+  - *Rockwood Misty Black* (Whole Leaf Mahogany & Copper Bloom)
+  - *Rockwood Misty Green* (Young Shoot Dew & Jade Light)
+- **Lenis Smooth Scroll:** Hardware-accelerated inertial scrolling with automatic `prefers-reduced-motion` compliance.
+- **Full E-Commerce Stack:** Cart, Checkout with Indian GST calculation (5% tea, 18% shipping, CGST+SGST vs IGST), `/cart?add=[id]` link handling, Compare matrix, and Wishlist.
 
 ---
 
-## 💻 How to Run Locally
+## 🌐 Instant Hosting (1-Click Deployment)
 
-### 1. Start the Server
-The project is configured and compiled in `D:\Briear`:
+### Option 1: Vercel (Recommended for Next.js)
+1. Go to [Vercel](https://vercel.com/new).
+2. Click **Import Git Repository** and select `mithrakhanth5/Briar-groups-`.
+3. Keep default settings (Framework: Next.js) and click **Deploy**.
+4. Your site will be live with full SSL, global CDN, and automatic continuous deployment on every git push!
+
+### Option 2: Netlify
+1. Connect to [Netlify](https://app.netlify.com/start).
+2. Choose GitHub and select repository `mithrakhanth5/Briar-groups-`.
+3. Build command: `npm run build`, Publish directory: `.next`.
+4. Click **Deploy Site**.
+
+---
+
+## 💻 Local Development
+
 ```bash
-# Navigate to the project directory
-cd D:\Briear
+# Clone the repository
+git clone https://github.com/mithrakhanth5/Briar-groups-.git
+cd Briar-groups-
 
-# Run the production server
-npm run start
-```
-Or to run in development mode with hot-reloading:
-```bash
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
+
+# Open http://localhost:3000 in your browser
 ```
 
-### 2. Access the Website
-Open your browser and navigate to:
-```
-http://localhost:3000
-```
+---
+
+## 📜 License & Heritage
+© 1928–2026 Briar Tea Estates. Single-origin, packed fresh at source.
