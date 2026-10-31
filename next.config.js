@@ -7,8 +7,12 @@ const nextConfig = {
   basePath: isGithubActions ? '/Briar-groups-' : '',
   assetPrefix: isGithubActions ? '/Briar-groups-/' : undefined,
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubActions ? '/Briar-groups-' : '',
+  },
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/utils/imageLoader.js',
   },
   webpack: (config) => {
     config.resolve.symlinks = false;

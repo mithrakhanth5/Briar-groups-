@@ -14,6 +14,8 @@ import AuthModal from '@/components/layout/AuthModal';
 import QuickViewModal from '@/components/shop/QuickViewModal';
 import Toast from '@/components/ui/Toast';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://briartea.com'),
   title: 'BRIAR Tea | 100% Single Origin Heritage South Indian Tea',
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     siteName: 'BRIAR Tea',
     images: [
       {
-        url: '/images/hero-1.webp',
+        url: `${basePath}/images/hero-1.webp`,
         width: 1200,
         height: 630,
         alt: 'Briar Single Origin Tea Harvest',
@@ -55,10 +57,10 @@ export const metadata: Metadata = {
     title: 'BRIAR Tea | 100% Single Origin Heritage South Indian Tea',
     description:
       '100% single origin, unblended tea harvested in South Indian high ranges since 1928.',
-    images: ['/images/hero-1.webp'],
+    images: [`${basePath}/images/hero-1.webp`],
   },
   icons: {
-    icon: '/images/spinner.svg',
+    icon: `${basePath}/images/spinner.svg`,
   },
 };
 
